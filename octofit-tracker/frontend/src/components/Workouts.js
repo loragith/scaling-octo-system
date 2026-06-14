@@ -7,6 +7,7 @@ function Workouts() {
   const [error, setError] = useState(null);
   const baseUrl = getApiBaseUrl();
   const endpoint = `${baseUrl}/workouts/`;
+  // Codespace endpoint example: https://<codespace>-8000.app.github.dev/api/workouts/
 
   useEffect(() => {
     console.log('Workouts endpoint:', endpoint);

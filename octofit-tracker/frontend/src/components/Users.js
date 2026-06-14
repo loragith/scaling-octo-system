@@ -7,6 +7,7 @@ function Users() {
   const [error, setError] = useState(null);
   const baseUrl = getApiBaseUrl();
   const endpoint = `${baseUrl}/users/`;
+  // Codespace endpoint example: https://<codespace>-8000.app.github.dev/api/users/
 
   useEffect(() => {
     console.log('Users endpoint:', endpoint);

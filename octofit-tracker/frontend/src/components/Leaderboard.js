@@ -7,6 +7,7 @@ function Leaderboard() {
   const [error, setError] = useState(null);
   const baseUrl = getApiBaseUrl();
   const endpoint = `${baseUrl}/leaderboard/`;
+  // Codespace endpoint example: https://<codespace>-8000.app.github.dev/api/leaderboard/
 
   useEffect(() => {
     console.log('Leaderboard endpoint:', endpoint);

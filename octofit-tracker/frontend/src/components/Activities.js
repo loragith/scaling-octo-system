@@ -7,6 +7,7 @@ function Activities() {
   const [error, setError] = useState(null);
   const baseUrl = getApiBaseUrl();
   const endpoint = `${baseUrl}/activities/`;
+  // Codespace endpoint example: https://<codespace>-8000.app.github.dev/api/activities/
 
   useEffect(() => {
     console.log('Activities endpoint:', endpoint);

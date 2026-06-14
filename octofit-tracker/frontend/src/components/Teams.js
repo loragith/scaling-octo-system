@@ -7,6 +7,7 @@ function Teams() {
   const [error, setError] = useState(null);
   const baseUrl = getApiBaseUrl();
   const endpoint = `${baseUrl}/teams/`;
+  // Codespace endpoint example: https://<codespace>-8000.app.github.dev/api/teams/
 
   useEffect(() => {
     console.log('Teams endpoint:', endpoint);
