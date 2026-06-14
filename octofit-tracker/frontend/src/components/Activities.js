@@ -46,20 +46,22 @@ function Activities() {
                 <thead className="table-dark">
                   <tr>
                     <th>#</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th>Data</th>
+                    <th>User</th>
+                    <th>Type</th>
+                    <th>Duration</th>
+                    <th>Distance</th>
+                    <th>Timestamp</th>
                   </tr>
                 </thead>
                 <tbody>
                   {activities.map((activity, index) => (
                     <tr key={activity.id || index}>
                       <td>{index + 1}</td>
-                      <td>{activity.name || activity.title || 'N/A'}</td>
-                      <td>{activity.description || activity.detail || '—'}</td>
-                      <td>
-                        <code>{JSON.stringify(activity, null, 2)}</code>
-                      </td>
+                      <td>{activity.user?.username || activity.user?.id || 'N/A'}</td>
+                      <td>{activity.type || 'N/A'}</td>
+                      <td>{activity.duration ? `${activity.duration} min` : '—'}</td>
+                      <td>{activity.distance != null ? `${activity.distance} km` : '—'}</td>
+                      <td>{new Date(activity.timestamp).toLocaleString() || '—'}</td>
                     </tr>
                   ))}
                 </tbody>

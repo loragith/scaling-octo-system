@@ -46,9 +46,9 @@ function Workouts() {
                 <thead className="table-dark">
                   <tr>
                     <th>#</th>
-                    <th>Title</th>
+                    <th>Name</th>
                     <th>Duration</th>
-                    <th>Data</th>
+                    <th>Description</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -56,10 +56,8 @@ function Workouts() {
                     <tr key={workout.id || index}>
                       <td>{index + 1}</td>
                       <td>{workout.name || workout.title || 'N/A'}</td>
-                      <td>{workout.duration || workout.length || '—'}</td>
-                      <td>
-                        <code>{JSON.stringify(workout, null, 2)}</code>
-                      </td>
+                      <td>{workout.duration != null ? `${workout.duration} min` : '—'}</td>
+                      <td>{workout.description || workout.detail || '—'}</td>
                     </tr>
                   ))}
                 </tbody>

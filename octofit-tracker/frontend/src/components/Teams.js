@@ -47,8 +47,7 @@ function Teams() {
                   <tr>
                     <th>#</th>
                     <th>Name</th>
-                    <th>Members</th>
-                    <th>Data</th>
+                    <th>Member Count</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -56,10 +55,7 @@ function Teams() {
                     <tr key={team.id || index}>
                       <td>{index + 1}</td>
                       <td>{team.name || `Team ${index + 1}`}</td>
-                      <td>{team.members?.length || team.member_count || '—'}</td>
-                      <td>
-                        <code>{JSON.stringify(team, null, 2)}</code>
-                      </td>
+                      <td>{team.members?.length ?? team.member_count ?? '—'}</td>
                     </tr>
                   ))}
                 </tbody>

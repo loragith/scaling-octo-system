@@ -46,20 +46,16 @@ function Leaderboard() {
                 <thead className="table-dark">
                   <tr>
                     <th>#</th>
-                    <th>User</th>
-                    <th>Score</th>
-                    <th>Data</th>
+                    <th>Team</th>
+                    <th>Points</th>
                   </tr>
                 </thead>
                 <tbody>
                   {items.map((entry, index) => (
                     <tr key={entry.id || index}>
                       <td>{index + 1}</td>
-                      <td>{entry.name || entry.username || 'N/A'}</td>
-                      <td>{entry.score || entry.points || '—'}</td>
-                      <td>
-                        <code>{JSON.stringify(entry, null, 2)}</code>
-                      </td>
+                      <td>{entry.team?.name || entry.team || 'N/A'}</td>
+                      <td>{entry.points != null ? entry.points : '—'}</td>
                     </tr>
                   ))}
                 </tbody>

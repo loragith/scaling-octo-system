@@ -48,7 +48,7 @@ function Users() {
                     <th>#</th>
                     <th>Username</th>
                     <th>Email</th>
-                    <th>Data</th>
+                    <th>Team</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -57,9 +57,7 @@ function Users() {
                       <td>{index + 1}</td>
                       <td>{user.username || 'N/A'}</td>
                       <td>{user.email || '—'}</td>
-                      <td>
-                        <code>{JSON.stringify(user, null, 2)}</code>
-                      </td>
+                      <td>{user.team?.name || user.team || '—'}</td>
                     </tr>
                   ))}
                 </tbody>

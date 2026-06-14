@@ -3,17 +3,29 @@ from django.contrib.auth import get_user_model
 from django.db import connection
 from octofit_tracker.models import Team, Activity, Leaderboard, Workout
 
+
+def safe_clear_model(model):
+    qs = model.objects.all()
+    try:
+        qs.delete()
+    except TypeError as exc:
+        if 'unhashable' in str(exc).lower() and hasattr(qs, '_collection'):
+            qs._collection.delete_many({})
+        else:
+            raise
+
+
 class Command(BaseCommand):
     help = 'Populate the octofit_db database with test data'
 
     def handle(self, *args, **options):
         User = get_user_model()
         # Clear collections
-        User.objects.all().delete()
-        Team.objects.all().delete()
-        Activity.objects.all().delete()
-        Leaderboard.objects.all().delete()
-        Workout.objects.all().delete()
+        safe_clear_model(User)
+        safe_clear_model(Team)
+        safe_clear_model(Activity)
+        safe_clear_model(Leaderboard)
+        safe_clear_model(Workout)
 
         # Create Teams
         marvel = Team.objects.create(name='Team Marvel')
